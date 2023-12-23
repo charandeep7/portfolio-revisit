@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter, Cedarville_Cursive } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Image from 'next/image'
 import mybg from '@/public/home-background.png'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`min-h-screen max-w-screen-2xl bg-cover relative ${inter.className}`}>
+        <Toaster />
         <Image src={mybg} alt='bg' fill className='z-[-99]' priority />
         {children}
       </body>

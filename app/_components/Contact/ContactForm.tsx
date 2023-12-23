@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { poppins } from "@/lib/Font";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 import {
   Form,
@@ -42,25 +43,27 @@ export default function ContactForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
-
     const data = {
-        service_id: process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID as string,
-        template_id: process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID as string,
-        user_id: process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY as string,
-        values,
+      service_id: process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID as string,
+      template_id: process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID as string,
+      user_id: process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY as string,
+      values,
     };
-    emailjs.send(data.service_id,data.template_id,data.values,data.user_id).then((result) => {
-        alert('Sent')
-        console.log(result)
-        form.reset()
-    }, (error) => {
-        alert('Something Went Wrong')
-        console.log(error);
-    });
+    toast.promise(
+      emailjs
+        .send(data.service_id, data.template_id, data.values, data.user_id)
+        .then((success) => {
+          form.reset();
+        }),
+      {
+        loading: "Sending... 📤",
+        success: "Your message has been sent 🎉",
+        error: "Uh oh! Something went wrong 😥",
+      }
+    );
   }
   return (
     <div>
@@ -114,7 +117,12 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="bg-transparent border border-solid border-primary hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:text-white hover:scale-110 duration-300">Submit</Button>
+          <Button
+            type="submit"
+            className="bg-transparent border border-solid border-primary hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:text-white hover:scale-110 duration-300"
+          >
+            Submit
+          </Button>
         </form>
       </Form>
     </div>

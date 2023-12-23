@@ -79,3 +79,26 @@ export const knowledges = [
         img: aws
     },
 ]
+
+export const profiles = [
+    {
+        id: "1",
+        name: 'Leetcode',
+        url: 'https://leetcode.com/_kitish/'
+    },
+    {
+        id: "2",
+        name: 'Codeforces',
+        url: 'https://codeforces.com/profile/extended_euclidean'
+    },
+    {
+        id: "3",
+        name: 'Codechef',
+        url: 'https://www.codechef.com/users/kitish2003'
+    },
+    {
+        id: "4",
+        name: 'Atcoder',
+        url: 'https://atcoder.jp/users/charandeep'
+    },
+]

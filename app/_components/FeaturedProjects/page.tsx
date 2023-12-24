@@ -18,11 +18,11 @@ export default async function FeaturedProjects() {
         Featured Projects
       </h1>
       <p className="tracking-wide first-letter:text-primary-foreground first-letter:text-2xl sm:w-3/4 sm:text-justify">
-        I have made many small and big project in last few years. So, Guys here
+        {`I have made many small and big project in last few years. So, Guys here
         are a few of my projects. You can visit my github for all projects list.
         You can also suggest me some idea about to create project or even we can
         make together. Check and suggest me where can i improve in my project. I
-        don't have any experience in team working but i'd love to work together.
+        don't have any experience in team working but i'd love to work together.`}
       </p>
       <h2
         className={`tracking-widest capitalize gap-2 text-xl first-letter:text-3xl first-letter:text-primary-foreground ${poppins.className}`}
@@ -35,6 +35,7 @@ export default async function FeaturedProjects() {
       </h2>
       {
         myprojects && <ViewProject values={myprojects} />
+
       }
     </div>
   );

@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { notFound } from "next/navigation";
 import {
   Carousel,
   CarouselContent,
@@ -17,15 +18,18 @@ export default function Project({ params }: { params: { projectId: string } }) {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("project") as string);
-    if (items) {
-      for (let i = 0; i < data.length; ++i) {
+    if(data) {
+      for(let i = 0; i < data.length; ++i) {
         if (data[i][0] === params.projectId) {
           setItems(data[i]);
           break;
         }
       }
     }
+    // data && setItems(data.find((item:any) => item[0] === params.projectId));
   }, []);
+
+  // if(items.length === 0) notFound()
   return (
     <div>
       <h1 className="text-5xl pt-4 capitalize text-center sm:text-6xl md:text-7xl">

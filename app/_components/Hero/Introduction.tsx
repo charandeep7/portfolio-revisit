@@ -48,7 +48,7 @@ export default function Introduction() {
   return (
     <div className="flex flex-col gap-3 items-center pl-4 pt-10 md:items-start md:pt-0">
       <h1 className="text-3xl font-bold tracking-wider first-letter:text-4xl first-letter:text-primary-foreground">
-        Hello, i'm
+        {`Hello, i'm`}
       </h1>
       <h2
         onClick={() => setToggle(!toggle)}

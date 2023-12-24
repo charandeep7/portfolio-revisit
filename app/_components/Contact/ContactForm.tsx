@@ -74,7 +74,7 @@ export default function ContactForm() {
             "0px 18px 2px #0f0f0f, 10px 10px 10px rgba(0, 0, 0, 0.15),10px 12px 2px rgba(0, 0, 0, 0.7)",
         }}
       >
-        Contact Me, Let's Make Magic Together
+        {`Contact Me, Let's Make Magic Together`}
       </h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -111,7 +111,7 @@ export default function ContactForm() {
                   <Input placeholder="Message" {...field} className="h-20" />
                 </FormControl>
                 <FormDescription>
-                  Don't think more. Send me the message right now ! 😎
+                  {`Don't think more. Send me the message right now ! 😎`}
                 </FormDescription>
                 <FormMessage />
               </FormItem>

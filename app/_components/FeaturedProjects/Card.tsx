@@ -5,7 +5,7 @@ import { VscGithub } from "react-icons/vsc";
 import { RiComputerFill } from "react-icons/ri";
 import { MdGridView } from "react-icons/md";
 
-export default function ProjectCard({ imgsrc,alt,title,description,ishosted,hostedlink,githublink,projectid }: {
+export default function ProjectCard({ imgsrc,alt,title,description,ishosted,hostedlink,githublink,projectid, ismore }: {
     imgsrc: string,
     alt: string,
     title: string,
@@ -13,7 +13,8 @@ export default function ProjectCard({ imgsrc,alt,title,description,ishosted,host
     ishosted: boolean,
     hostedlink: string,
     githublink: string,
-    projectid: string
+    projectid: string,
+    ismore: boolean
 }) {
   return (
     <div
@@ -55,10 +56,10 @@ export default function ProjectCard({ imgsrc,alt,title,description,ishosted,host
           </a>
         </Button>
         <Button
-          className="bg-white hover:bg-gray-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]"
+          className={ismore ? "bg-white hover:bg-gray-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]" : 'text-white w-[70%] bg-muted opacity-40 hover:bg-muted cursor-not-allowed'}
           asChild
         >
-          <Link href={`/projects/${projectid}`} target="_blank">
+          <Link href={ ismore ? `/projects/${projectid}` : '#'} target="_blank">
             More &nbsp; <MdGridView />
           </Link>
         </Button>

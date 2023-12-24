@@ -34,6 +34,7 @@ export default function ViewProject({ values }: {
               hostedlink={e[1].hostedlink}
               githublink={e[1].githublink}
               projectid={e[0]}
+              ismore={e[1].ismore}
               key={e[0]}
             />
           ))}

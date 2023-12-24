@@ -14,7 +14,7 @@ export default function About() {
       >
         About Me
       </h1>
-      <p className="tracking-wide first-letter:text-primary-foreground first-letter:text-2xl sm:w-3/4 sm:text-justify">
+      <p className="tracking-wide first-letter:text-primary-foreground first-letter:text-2xl sm:w-3/4 sm:text-justify">{`
         Hey, My name is Charandeep Kumar (Kitish). I'm currently studying in
         Indian Institute of Information Technology, Lucknow. I'm in 3rd year
         B.Tech IT Branch. I've great interset in the solving algothimic problem
@@ -26,7 +26,8 @@ export default function About() {
         Branch. I've great interset in the solving algothimic problem and
         developing websites. Recently, I've started studying about react native
         to develop app. I also love travelling. I don't have any fixed and final
-        plan for future but i just want to be a great Engineer.
+        plan for future but i just want to be a great Engineer.`
+      }
       </p>
       <h2
         className={`tracking-widest capitalize gap-2 text-xl first-letter:text-3xl first-letter:text-primary-foreground ${poppins.className}`}
@@ -42,7 +43,7 @@ export default function About() {
         <li>LeetCode Rating: 1855</li>
         <li>3★ on Codechef (mxRating: 1627)</li>
         <li>Atcoder Rating: 669</li>
-        <li>2nd Winner in Fresher's Cup)</li>
+        <li>{`2nd Winner in Fresher's Cup`}</li>
       </ul>
       <h2
         className={`tracking-widest capitalize gap-2 text-xl first-letter:text-3xl first-letter:text-primary-foreground ${poppins.className}`}

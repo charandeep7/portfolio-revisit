@@ -121,7 +121,7 @@ export default function ContactForm() {
             type="submit"
             className="bg-transparent border border-solid border-primary hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:text-white hover:scale-110 duration-300"
           >
-            Submit
+            Send &nbsp; 🚀
           </Button>
         </form>
       </Form>

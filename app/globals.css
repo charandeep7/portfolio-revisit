@@ -6,6 +6,9 @@
   .TextAlignLast{
       text-align-last: center;
   }
+  .font-variant-smallcaps{
+    font-variant: small-caps;
+  }
 }
 
 

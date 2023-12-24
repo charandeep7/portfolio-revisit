@@ -12,6 +12,10 @@ import mysql from '../public/topics/mysql.png'
 import mongo from '../public/topics/mongo.png'
 import aws from '../public/topics/mongo.png'
 
+
+import watch from '../public/stopwatch.jpg'
+import chatapp from '../public/chat-app.png'
+
 export const knowledges = [
     {
         id: "1",
@@ -102,3 +106,5 @@ export const profiles = [
         url: 'https://atcoder.jp/users/charandeep'
     },
 ]
+
+export const images = [watch,javascript,c,chatapp,watch,chatapp,watch,chatapp]

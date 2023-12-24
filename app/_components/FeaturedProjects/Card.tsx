@@ -1,12 +1,20 @@
 import Image from "next/image";
-import watch from "@/public/stopwatch.jpg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { VscGithub } from "react-icons/vsc";
 import { RiComputerFill } from "react-icons/ri";
 import { MdGridView } from "react-icons/md";
 
-export default function ProjectCard() {
+export default function ProjectCard({ imgsrc,alt,title,description,ishosted,hostedlink,githublink,projectid }: {
+    imgsrc: string,
+    alt: string,
+    title: string,
+    description: string,
+    ishosted: boolean,
+    hostedlink: string,
+    githublink: string,
+    projectid: string
+}) {
   return (
     <div
       style={{
@@ -14,26 +22,26 @@ export default function ProjectCard() {
         transition: "all 350ms ease-in",
         padding: "10px 10px",
       }}
-      className="flex flex-col justify-evenly items-center rounded-[16px] shadow-2xl hover:shadow-lg hover:shadow-white/50"
+      className="flex flex-col justify-between items-center rounded-[16px] shadow-2xl hover:shadow-lg hover:shadow-white/50"
     >
       <Image
-        src={"https://kitish-bucket.s3.ap-south-1.amazonaws.com/portfolio-old/chat-app.png"}
-        alt="l"
+        src={imgsrc}
+        alt={alt}
         width={500}
         height={500}
         className="w-3/4 object-cover rounded-sm mb-1"
       />
-      <h1 className="text-3xl font-bold mb-2">Stopwatch</h1>
+      <h1 className="text-3xl font-bold mb-2">{title}</h1>
       <p className="overflow-hidden mb-4 text-center">
-        I made this stopwatch when i was learning javascript. It's only of HTML,
-        CSS and Vanilla JS.
+        {description}
       </p>
       <div className="flex flex-col gap-4 mb-2 sm:flex-row items-center w-[100%] justify-evenly">
         <Button
-          className="bg-primary hover:bg-[#281f5c] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]"
+          className={ishosted ? 'bg-primary hover:bg-[#281f5c] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]' : 'text-white w-[70%] bg-muted opacity-40 hover:bg-muted cursor-not-allowed'}
+          disabled={ishosted}
           asChild
         >
-          <a href="#" target="_blank" className="text-white">
+          <a href={ishosted ? hostedlink : '#'} target="_blank" className="text-white">
             Live &nbsp;
             <RiComputerFill />
           </a>
@@ -42,7 +50,7 @@ export default function ProjectCard() {
           className="bg-transparent border border-solid border-primary hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]"
           asChild
         >
-          <a href="#" target="_blank" className="text-white">
+          <a href={githublink} target="_blank" className="text-white">
             Github Repo &nbsp; <VscGithub />
           </a>
         </Button>
@@ -50,7 +58,7 @@ export default function ProjectCard() {
           className="bg-white hover:bg-gray-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]"
           asChild
         >
-          <Link href="/projects/1">
+          <Link href={`/projects/${projectid}`} target="_blank">
             More &nbsp; <MdGridView />
           </Link>
         </Button>

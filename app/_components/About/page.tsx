@@ -54,7 +54,7 @@ export default function About() {
         Knows
       </h2>
 
-      <div className="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-9 h-[100%] w-[100%]">
+      <div className="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-9">
         {knowledges.map((knowledge) => (
           <div
             key={knowledge.id}

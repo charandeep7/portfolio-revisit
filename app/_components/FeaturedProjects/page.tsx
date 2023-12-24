@@ -1,10 +1,11 @@
-import Link from "next/link";
 import { poppins } from "@/lib/Font";
-import { Skeleton } from "@/components/ui/skeleton";
-import ProjectCard from "./Card";
-import { Suspense } from "react";
+import { readData } from "@/app/api/ReadData";
+import ViewProject from "./ViewProjects";
 
-export default function FeaturedProjects() {
+export default async function FeaturedProjects() {
+  const myprojects = await readData();
+  // const myprojects = [1,2,3]
+
   return (
     <div className="flex flex-col gap-5 px-8 mt-4">
       <h1
@@ -32,15 +33,9 @@ export default function FeaturedProjects() {
       >
         Project
       </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 h-[100%] w-[100%]  mb-[25px]">
-        <Suspense fallback={<Skeleton className="w-[100px] h-[20px] bg-gray-200 rounded-full" />}>
-          {[1].map((e) => (
-            <ProjectCard />
-          ))}
-        </Suspense>
-      </div>
-      <Link href={"/projects"}>Go to Projects</Link>
+      {
+        myprojects && <ViewProject values={myprojects} />
+      }
     </div>
   );
 }

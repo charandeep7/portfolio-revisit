@@ -42,7 +42,7 @@ export default function Introduction() {
   useEffect(() => {
     let timer = setInterval(() => {
       setToggle(!toggle);
-    }, 200000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [toggle]);
   return (

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
-import { Suspense, useState, useCallback } from "react";
+import { Suspense, useState, useCallback, useEffect } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import { MdOutlineDownloading } from "react-icons/md";
 import ProjectCard from "./Card";
@@ -11,17 +11,17 @@ import ProjectCard from "./Card";
 export default function ViewProject({ values }: {
   values: PropTypes[]
 }) {
-  const calculateInitialValue = () => {
+  const [loadmore, setLoadmore] = useState(3);
+  
+  useEffect(() => {
     const storedValue = sessionStorage.getItem('loadmore');
-    return storedValue ? parseInt(storedValue, 10) : 3;
-  };
+    setLoadmore(storedValue ? parseInt(storedValue, 10) : 3);
+  }, []);
 
-  const [loadmore, setLoadmore] = useState(calculateInitialValue);
-
-  const handleIncrement = useCallback(() => {
-    setLoadmore((prevCount) => Math.min(prevCount + 1,values.length));
+  const handleIncrement = () => {
+    setLoadmore((prevCount) => Math.min(prevCount + 1, values.length));
     sessionStorage.setItem('loadmore', (loadmore + 1).toString());
-  }, [loadmore]);
+  };
 
   const data = values.slice(0, Math.min(loadmore, values.length));
 

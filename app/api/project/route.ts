@@ -10,10 +10,10 @@ export async function POST(request: Request & { body: RequestBody }, response: R
     try {
         const { project, more } = await request.json()
         if(!more){
-            // const res = await addProject(project)
+            const res = await addProject(project)
             return NextResponse.json({ message: 'Succesfully Added! 😎' , redirect: "/" }, { status: 200 });
         }else{
-            // const res = await addProjectWithPreview(project)
+            const res = await addProjectWithPreview(project)
             return NextResponse.json({ message: 'Succesfully Added! 😍' , redirect: "/" }, { status: 200 });
         }
     } catch (error) {

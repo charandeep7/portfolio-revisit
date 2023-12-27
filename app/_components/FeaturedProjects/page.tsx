@@ -1,10 +1,10 @@
 import { poppins } from "@/lib/Font";
-import { readData } from "@/app/api/ReadData";
 import ViewProject from "./ViewProjects";
+import { readProject } from "@/app/api/prisma/readProject";
 
 export default async function FeaturedProjects() {
-  const myprojects = await readData();
-  // const myprojects = [1,2,3]
+  
+  const myprojects = await readProject();
 
   return (
     <div className="flex flex-col gap-5 px-8 mt-4">

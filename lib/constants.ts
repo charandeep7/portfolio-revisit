@@ -10,7 +10,7 @@ import nodejs from '../public/topics/node.png'
 import firebase from '../public/topics/firebase.png'
 import mysql from '../public/topics/mysql.png'
 import mongo from '../public/topics/mongo.png'
-import aws from '../public/topics/mongo.png'
+import aws from '../public/topics/aws.png'
 
 
 import watch from '../public/stopwatch.jpg'
@@ -19,13 +19,13 @@ import chatapp from '../public/chat-app.png'
 export const knowledges = [
     {
         id: "1",
-        name: "C++",
-        img: cpp
+        name: "C",
+        img: c
     },
     {
         id: "2",
-        name: "C",
-        img: c
+        name: "C++",
+        img: cpp
     },
     {
         id: "3",

@@ -5,16 +5,16 @@ import { VscGithub } from "react-icons/vsc";
 import { RiComputerFill } from "react-icons/ri";
 import { MdGridView } from "react-icons/md";
 
-export default function ProjectCard({ imgsrc,alt,title,description,ishosted,hostedlink,githublink,projectid, ismore }: {
-    imgsrc: string,
+export default function ProjectCard({ img,alt,title,desc,ishosted,hostedLink,githubLink,projectID, isMore }: {
+    img: string,
     alt: string,
     title: string,
-    description: string,
+    desc: string,
     ishosted: boolean,
-    hostedlink: string,
-    githublink: string,
-    projectid: string,
-    ismore: boolean
+    hostedLink: string,
+    githubLink: string,
+    projectID: string,
+    isMore: boolean
 }) {
   return (
     <div
@@ -26,7 +26,7 @@ export default function ProjectCard({ imgsrc,alt,title,description,ishosted,host
       className="flex flex-col justify-between items-center rounded-[16px] shadow-2xl hover:shadow-lg hover:shadow-white/50"
     >
       <Image
-        src={imgsrc}
+        src={img}
         alt={alt}
         width={500}
         height={500}
@@ -34,7 +34,7 @@ export default function ProjectCard({ imgsrc,alt,title,description,ishosted,host
       />
       <h1 className="text-3xl font-bold mb-2">{title}</h1>
       <p className="overflow-hidden mb-4 text-center">
-        {description}
+        {desc}
       </p>
       <div className="flex flex-col gap-4 mb-2 sm:flex-row items-center w-[100%] justify-evenly">
         <Button
@@ -42,7 +42,7 @@ export default function ProjectCard({ imgsrc,alt,title,description,ishosted,host
           disabled={ishosted}
           asChild
         >
-          <a href={ishosted ? hostedlink : '#'} target="_blank" className="text-white">
+          <a href={ishosted ? hostedLink : '#'} target="_blank" className="text-white">
             Live &nbsp;
             <RiComputerFill />
           </a>
@@ -51,15 +51,15 @@ export default function ProjectCard({ imgsrc,alt,title,description,ishosted,host
           className="bg-transparent border border-solid border-primary hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]"
           asChild
         >
-          <a href={githublink} target="_blank" className="text-white">
+          <a href={githubLink} target="_blank" className="text-white">
             Github Repo &nbsp; <VscGithub />
           </a>
         </Button>
         <Button
-          className={ismore ? "bg-white hover:bg-gray-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]" : 'text-white w-[70%] bg-muted opacity-40 hover:bg-muted cursor-not-allowed'}
+          className={isMore ? "bg-white hover:bg-gray-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[70%]" : 'text-white w-[70%] bg-muted opacity-40 hover:bg-muted cursor-not-allowed'}
           asChild
         >
-          <Link href={ ismore ? `/projects/${projectid}` : '#'} target="_blank">
+          <Link href={ isMore ? `/project/${projectID}` : '#'}>
             More &nbsp; <MdGridView />
           </Link>
         </Button>

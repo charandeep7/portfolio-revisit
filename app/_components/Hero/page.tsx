@@ -1,6 +1,5 @@
 import Introduction from "./Introduction";
 import MyImage from "./MyImage";
-import { MySlideLeft, MySlideRight } from "@/components/animtions/Slide";
 import { MyFade } from "@/components/animtions/Fade";
 export default function Hero() {
   return (

@@ -1,11 +1,17 @@
 import Introduction from "./Introduction";
 import MyImage from "./MyImage";
-
-export default function Hero(){
-    return (
-        <div className="flex flex-col items-center py-14 md:flex-row-reverse md:justify-evenly md:py-24">
-            <MyImage />
-            <Introduction />
-        </div>
-    )
+import { MySlideLeft, MySlideRight } from "@/components/animtions/Slide";
+import { MyFade } from "@/components/animtions/Fade";
+export default function Hero() {
+  return (
+    <div
+      className="flex flex-col items-center py-14 md:flex-row-reverse md:justify-evenly md:py-24"
+      id="home"
+    >
+      <MyFade>
+        <MyImage />
+        <Introduction />
+      </MyFade>
+    </div>
+  );
 }

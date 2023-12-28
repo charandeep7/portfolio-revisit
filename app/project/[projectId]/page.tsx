@@ -10,7 +10,6 @@ export default async function Project({
   params: { projectId: string };
 }) {
   const item = await readSingleProject(parseInt(params.projectId));
-  // console.log(item);
   return (
     <div>
       <h1 className="text-5xl pt-4 capitalize text-center sm:text-6xl md:text-7xl">

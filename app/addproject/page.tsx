@@ -32,6 +32,10 @@ export default function AddProject() {
     longdesc: "",
   });
   const handleSubmit = async () => {
+    if(data.title === ""){
+      toast.error('Nothing to be sent')
+      return
+    }
     const images: any = {
       create: [],
     };

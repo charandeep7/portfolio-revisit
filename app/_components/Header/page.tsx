@@ -1,53 +1,48 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Logo from "./Logo";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const navMenuList = [
   {
     id: "1",
     name: "Home",
-    href: "/",
+    href: "/#home",
   },
   {
     id: "2",
     name: "About",
-    href: "/about",
+    href: "/#about",
   },
   {
     id: "3",
-    name: "History",
-    href: "/history",
+    name: "Projects",
+    href: "/#project",
   },
   {
     id: "4",
-    name: "Service",
-    href: "/service",
+    name: "Contact",
+    href: "/#contact",
   },
   {
     id: "5",
-    name: "Projects",
-    href: "/projects",
-  },
-  {
-    id: "6",
-    name: "Blog",
-    href: "/blog",
+    name: "Add Project",
+    href: "/password",
   },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const [toggle,setToggle] = useState(false)
-  const handleOpen = () => {
-    setToggle(!toggle)
-    if(toggle){
-      alert('hello')
-    }
-  }
+  const pathname = usePathname();
   return (
-    <header className="bg-black/75 dark:bg-gray-900">
+    <header className="bg-black/75 dark:bg-gray-900 fixed top-0 w-screen z-50">
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
         <Logo />
         <div className="flex flex-1 items-center justify-end">
@@ -56,9 +51,12 @@ export default function Navbar() {
               {navMenuList.map(({ name, id, href }) => (
                 <li key={id}>
                   <Link
-                    className={`text-white transition hover:text-gray-100/75 hover:underline dark:text-white dark:hover:text-white/75 ${pathname === href ? 'text-[#6c58db] underline' : null}`}
+                    className={`text-gray-500 transition hover:text-gray-100/75 hover:underline dark:text-white dark:hover:text-white/75 ${
+                      pathname === href ? "text-white underline" : null
+                    }`}
                     href={href}
                     id={id}
+                    scroll={true}
                   >
                     {name}
                   </Link>
@@ -67,24 +65,34 @@ export default function Navbar() {
             </ul>
           </nav>
         </div>
-
-        <button onClick={() => alert('cl')} className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 md:hidden">
-          <span className="sr-only">Toggle menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+        <div className="md:hidden">
+          <Dialog defaultOpen={false}>
+            <DialogTrigger asChild>
+              <Button variant="outline">Menu</Button>
+            </DialogTrigger>
+            <DialogContent className="w-3/4 sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Menu</DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <ul className="flex items-center flex-col sm:flex-row gap-6 text-sm">
+                  {navMenuList.map(({ name, id, href }) => (
+                    <li key={id}>
+                      <a
+                        className={`text-gray-500 transition hover:text-gray-100/75 hover:underline dark:text-white dark:hover:text-white/75 ${
+                          pathname === href ? "text-white underline" : null
+                        }`}
+                        href={href}
+                      >
+                        {name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
     </header>
   );

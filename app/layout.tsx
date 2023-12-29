@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`min-h-screen bg-cover relative ${inter.className}`}>
+      <body className={`min-h-screen bg-cover relative selection:text-pink-500 selection:bg-muted ${inter.className}`}>
         <Toaster />
         <Image src={mybg} alt='bg' fill className='z-[-99]' priority />
         {children}

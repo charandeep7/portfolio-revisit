@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
-import { Suspense, useState, useCallback, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import { MdOutlineDownloading } from "react-icons/md";
 import ProjectCard from "./Card";
@@ -63,7 +63,7 @@ export default function ViewProject({ values }: {
           className="bg-red-600 hover:bg-gray-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[40%] text-black"
           asChild
         >
-          <Link href="/password" className="text-black overflow-hidden">
+          <Link href="/addproject" className="text-black overflow-hidden">
             Add Project &nbsp;
             <span className="text-xl">
               <IoMdAddCircle />

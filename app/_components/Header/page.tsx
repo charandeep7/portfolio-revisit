@@ -35,7 +35,7 @@ const navMenuList = [
   {
     id: "5",
     name: "Add Project",
-    href: "/password",
+    href: "/addproject",
   },
 ];
 

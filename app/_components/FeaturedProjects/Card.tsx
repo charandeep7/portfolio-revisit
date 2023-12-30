@@ -55,7 +55,7 @@ export default function ProjectCard({
           asChild
         >
           <a
-            href={ishosted ? hostedLink : "#"}
+            href={ishosted ? hostedLink : ""}
             target="_blank"
             className="text-white"
           >

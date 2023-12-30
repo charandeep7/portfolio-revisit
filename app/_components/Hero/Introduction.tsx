@@ -38,7 +38,7 @@ export default function Introduction() {
           className="bg-primary hover:bg-[#281f5c] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
           asChild
         >
-          <Link className="text-white" href="/">
+          <Link className="text-white" href="/#about">
             About Me &nbsp;
             <MdOutlineMenuBook />
           </Link>

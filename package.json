@@ -22,6 +22,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toast": "^1.1.5",
+    "@react-three/drei": "^9.92.7",
+    "@react-three/fiber": "^8.15.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "emailjs": "^4.0.3",

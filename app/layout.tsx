@@ -4,7 +4,7 @@ import './globals.css'
 import Image from 'next/image'
 import mybg from '@/public/home-background.png'
 import { Toaster } from 'react-hot-toast'
-
+import StarsCanvas from './_components/StarBg.tsx/page'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`min-h-screen bg-cover relative selection:text-pink-500 selection:bg-muted ${inter.className}`}>
+        <StarsCanvas />
         <Toaster />
         <Image src={mybg} alt='bg' fill className='z-[-99]' priority />
         {children}

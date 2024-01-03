@@ -18,18 +18,7 @@ export default function About() {
         </h1>
         <p className="tracking-wide first-letter:text-primary-foreground first-letter:text-2xl sm:w-3/4 sm:text-justify">
           {`
-        Hey, My name is Charandeep Kumar (Kitish). I'm currently studying in
-        Indian Institute of Information Technology, Lucknow. I'm in 3rd year
-        B.Tech IT Branch. I've great interset in the solving algothimic problem
-        and developing websites. Recently, I've started studying about react
-        native to develop app. I also love travelling. I don't have any fixed
-        and final plan for future but i just want to be a great Engineer.Hey, My
-        name is Charandeep Kumar (Kitish). I'm currently studying in Indian
-        Institute of Information Technology, Lucknow. I'm in 3rd year B.Tech IT
-        Branch. I've great interset in the solving algothimic problem and
-        developing websites. Recently, I've started studying about react native
-        to develop app. I also love travelling. I don't have any fixed and final
-        plan for future but i just want to be a great Engineer.`}
+        Hello, I'm Charandeep Kumar, also known as Kitish. Currently enrolled in the Indian Institute of Information Technology, Lucknow, I'm pursuing my 3rd year in the B.Tech IT Branch. I possess a keen interest in solving algorithmic problems and crafting websites. Lately, I've delved into studying React Native for app development. Outside the world of codes and algorithms, I find joy in traveling. It's not just a hobby for me; it's a source of inspiration and a way to expand my horizons. While I don't have a fixed plan for the future, my overarching goal is to become a proficient and impactful engineer. The exploration is ongoing, and the path ahead might not be entirely clear, but I'm embracing the uncertainties with the spirit of continuous learning. Here's to the journey and the exciting possibilities that lie ahead in the world of technology.`}
         </p>
         <h2
           className={`tracking-widest capitalize gap-2 text-xl first-letter:text-3xl first-letter:text-primary-foreground ${poppins.className}`}

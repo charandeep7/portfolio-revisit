@@ -12,6 +12,7 @@ export default async function Project({
   params: { projectId: string };
 }) {
   const item = await readSingleProject(parseInt(params.projectId));
+  console.log(item)
   if(!item?.isMore){
     notFound() 
   }

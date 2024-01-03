@@ -2,7 +2,13 @@ import prisma from "./prismaClient";
 
 export const readProject = async () => {
     try{
-        const out = await prisma.project.findMany({})
+        const out = await prisma.project.findMany({
+            orderBy: [
+                {
+                    id: 'desc'
+                }
+            ]
+        })
         return out
     }catch(error){
         console.log(error)

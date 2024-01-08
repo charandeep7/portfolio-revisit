@@ -30,6 +30,7 @@
     "embla-carousel-react": "^8.0.0-rc17",
     "glowing-engine": "^1.0.4",
     "next": "14.0.4",
+    "nuka-carousel": "^7.0.0",
     "react": "^18",
     "react-awesome-reveal": "^4.2.7",
     "react-dom": "^18",

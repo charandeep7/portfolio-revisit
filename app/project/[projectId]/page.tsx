@@ -4,7 +4,27 @@ import Image from "next/image";
 import { Suspense } from "react";
 import { RiComputerFill } from "react-icons/ri";
 import { VscGithub } from "react-icons/vsc";
-import { notFound } from 'next/navigation'
+import { notFound } from "next/navigation";
+import ImageCarousel from "./ImageCarousel";
+
+const DivFrameWork: React.FC<{ id: number; img: string; name: string }> = ({
+  id,
+  img,
+  name,
+}) => {
+  return (
+    <div>
+      <Image
+        src={img}
+        alt={id.toString()}
+        height={1000}
+        width={1000}
+        className="w-[50px] h-[50px]"
+      />
+      <h2 className="text-center uppercase font-bold">{name}</h2>
+    </div>
+  );
+};
 
 export default async function Project({
   params,
@@ -12,32 +32,48 @@ export default async function Project({
   params: { projectId: string };
 }) {
   const item = await readSingleProject(parseInt(params.projectId));
-  console.log(item)
-  if(!item?.isMore){
-    notFound() 
+  if (!item?.isMore) {
+    notFound();
   }
   return (
     <Suspense fallback={<></>}>
       <div>
-        <h1 className="text-5xl pt-4 capitalize text-center sm:text-6xl md:text-7xl">
-          {item?.title}
-        </h1>
-        <div className="flex flex-col p-4 m-10 gap-4 justify-evenly sm:flex-row">
-          <p className="text-base tracking-wide sm:w-[40%] text-justify font-variant-smallcaps bg-gray-50/10 p-4 rounded">
-            {item?.projectDetails[0]?.longdesc}
+        <div className="flex flex-col justify-center items-center gap-2 p-4">
+          <h1 className="text-4xl capitalize  sm:text-6xl md:text-7xl">
+            {item?.title}
+          </h1>
+          <p className="w-[100%] sm:w-1/3 text-center">
+            {item?.desc} consequuntur incidunt perspiciatis exercitationem,
+            explicabo ipsum
           </p>
-          <div className="sm:w-[40%]">
-            {item?.projectDetails.at(0)?.images?.map(({ id, url }) => (
-              <div
-                className="flex justify-center items-center"
-                key={id.toString()}
-              >
-                <Image src={url} width={350} height={350} alt="img" />
-              </div>
-            ))}
-          </div>
         </div>
-        <div className="flex justify-evenly items-center mb-4 sm:mt-16">
+        <p className="text-base tracking-wide text-justify font-variant-smallcaps bg-gray-50/10 p-4 rounded">
+          {item?.projectDetails[0]?.longdesc}
+        </p>
+        <div className="flex justify-center items-center p-2 m-1">
+          <Suspense fallback={null}>
+            <ImageCarousel>
+              {item?.projectDetails.at(0)?.images?.map((img) => (
+                <Image
+                  key={img.id.toString()}
+                  src={img.url}
+                  alt={img.id.toString()}
+                  width={1000}
+                  height={1000}
+                  className="block m-auto w-[350px] h-[350px] object-contain"
+                />
+              ))}
+            </ImageCarousel>
+          </Suspense>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <Suspense fallback={null}>
+            {item?.projectDetails.at(0)?.frameworks?.map((fw,index) => (
+              <DivFrameWork key={index.toString()} id={fw.id} img={fw.logo} name={fw.name} />
+            ))}
+          </Suspense>
+        </div>
+        <div className="flex justify-evenly items-center mb-4">
           <Button
             className={
               item?.ishosted

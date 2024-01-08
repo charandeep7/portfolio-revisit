@@ -1,7 +1,8 @@
 # portfolio-2024
 **Personal [Portfolio](https://portfolio-revisit.vercel.app/) Website** 
 
-![ME](https://github.com/charandeep7/portfolio-revisit/assets/96859500/7023bc5f-9320-4f4c-975f-c20a0c43cd84)
+![portfolio](https://github.com/charandeep7/portfolio-revisit/assets/96859500/83ab574a-7361-4330-99ca-d71eca565207)
+
 
 
 *Run locally on your machine*

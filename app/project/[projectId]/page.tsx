@@ -21,7 +21,7 @@ const DivFrameWork: React.FC<{ id: number; img: string; name: string }> = ({
         width={1000}
         className="w-[50px] h-[50px]"
       />
-      <h2 className="text-center uppercase font-bold">{name}</h2>
+      <h2 className="text-center uppercase text-sm">{name}</h2>
     </div>
   );
 };
@@ -43,8 +43,7 @@ export default async function Project({
             {item?.title}
           </h1>
           <p className="w-[100%] sm:w-1/3 text-center">
-            {item?.desc} consequuntur incidunt perspiciatis exercitationem,
-            explicabo ipsum
+            {item?.desc}
           </p>
         </div>
         <p className="text-base tracking-wide text-justify font-variant-smallcaps bg-gray-50/10 p-4 rounded">
